@@ -4,6 +4,7 @@ import CountdownTimer from "./CountdownTimer";
 import WeddingCard from "./WeddingCard";
 import OurLoveStory from "./OurLoveStory";
 import Gallery from "./Gallery";
+import Guestbook from "./Guestbook";
 
 export const metadata: Metadata = {
   title: "Join Our Celebration | 15 April 2026",
@@ -36,6 +37,7 @@ export default function Home() {
       <WeddingCard />
       <OurLoveStory />
       <Gallery />
+      <Guestbook />
     </div>
   );
 }

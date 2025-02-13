@@ -18,6 +18,9 @@ const images = [
 const Carousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const carouselRef = useRef<HTMLDivElement>(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [translateX, setTranslateX] = useState(0);
 
   useEffect(() => {
     if (carouselRef.current) {
@@ -28,12 +31,45 @@ const Carousel = () => {
     }
   }, [currentIndex]);
 
+  useEffect(() => {
+    if (!isDragging) {
+      setTranslateX(0);
+    }
+  }, [isDragging]);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setIsDragging(true);
+    setStartX(e.touches[0].clientX);
+    setTranslateX(0);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (!isDragging) return;
+    const diff = e.touches[0].clientX - startX;
+    setTranslateX(diff);
+  };
+
+  const handleTouchEnd = () => {
+    setIsDragging(false);
+
+    if (Math.abs(translateX) > 50) {
+      if (translateX > 0 && currentIndex > 0) {
+        setCurrentIndex((prev) => prev - 1);
+      } else if (translateX < 0 && currentIndex < images.length - 1) {
+        setCurrentIndex((prev) => prev + 1);
+      }
+    }
+  };
+
   return (
     <section className="relative w-full h-screen overflow-hidden shadow-[0_4px_4px_rgba(0,0,0,0.25),0_1px_2px_rgba(0,0,0,0.3)]">
       <div
         ref={carouselRef}
         className="flex w-full h-full"
         style={{ display: "flex", flexDirection: "row" }}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
       >
         {images.map((image, index) => (
           <div
