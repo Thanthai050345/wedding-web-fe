@@ -18,7 +18,7 @@ const OurLoveStory = () => {
   };
 
   return (
-    <div className="flex items-center justify-center bg-[#f4f4f4] py-16 px-6 font-sans">
+    <div className="flex items-center justify-center bg-[#f4f4f4] pt-16 px-6 font-sans">
       <div className="container mx-auto text-center">
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-primary mb-4">
           Our Love Story

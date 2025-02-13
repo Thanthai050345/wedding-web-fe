@@ -9,6 +9,7 @@ const images = [
   { src: "/images/wedding.jpg", alt: "Wedding Image 3" },
   { src: "/images/wedding2.jpg", alt: "Wedding Image 4" },
   { src: "/images/wedding.jpg", alt: "Wedding Image 5" },
+  { src: "/images/wedding2.jpg", alt: "Wedding Image 4" },
 ];
 
 const Gallery = () => {
@@ -54,9 +55,15 @@ const Gallery = () => {
 
     const handleScroll = () => {
       const maxScrollLeft = carousel.scrollWidth - carousel.clientWidth;
+
       if (carousel.scrollLeft === maxScrollLeft) {
         carousel.style.transition = "transform 0.3s ease";
         carousel.scrollLeft = carousel.clientWidth;
+      }
+
+      if (carousel.scrollLeft === 0) {
+        carousel.style.transition = "transform 0.3s ease";
+        carousel.scrollLeft = maxScrollLeft;
       }
     };
 
@@ -68,7 +75,7 @@ const Gallery = () => {
   }, []);
 
   return (
-    <div className="flex items-center justify-center bg-[#f4f4f4] py-16 px-6 font-sans">
+    <div className="flex items-center justify-center bg-[#f4f4f4] pt-16 px-6 font-sans">
       <div className="container mx-auto text-center">
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-primary mb-4">
           Gallery
@@ -79,7 +86,7 @@ const Gallery = () => {
 
         <div
           ref={carouselRef}
-          className="relative overflow-x-auto scrollbar-hide"
+          className="relative overflow-x-auto scrollbar-hide h-[480px]"
           onMouseDown={handleMouseDown}
           onMouseLeave={handleMouseLeave}
           onMouseUp={handleMouseUp}
@@ -87,7 +94,10 @@ const Gallery = () => {
         >
           <div className="flex space-x-4">
             {[...images, ...images, ...images].map((image, index) => (
-              <div key={index} className="flex-shrink-0 w-80 group content-center">
+              <div
+                key={index}
+                className="flex-shrink-0 w-80 group content-center"
+              >
                 <div className="rounded-lg shadow-lg overflow-hidden">
                   <Image
                     src={image.src}
@@ -95,7 +105,7 @@ const Gallery = () => {
                     width={500}
                     height={300}
                     className="w-full h-auto object-cover group-hover:scale-105 group-hover:shadow-xl transition-all duration-300 cursor-pointer"
-                    onClick={() => handleImageClick(image.src)} // เมื่อคลิกที่รูปภาพ จะเปิด modal
+                    onClick={() => handleImageClick(image.src)}
                   />
                 </div>
               </div>
