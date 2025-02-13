@@ -9,14 +9,15 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: '2C3E50',
+        primary: "#2C3E50",
         background: "var(--background)",
         foreground: "var(--foreground)",
+        "primary-dark": "#1A252F",
       },
       fontFamily: {
-        cormorantGaramond: ['Cormorant Garamond', 'sans-serif'],
-        sans: ['Athiti', 'sans-serif'],
-        raleway: ['Raleway', 'sans-serif'],
+        cormorantGaramond: ["Cormorant Garamond", "sans-serif"],
+        sans: ["Athiti", "sans-serif"],
+        raleway: ["Raleway", "sans-serif"],
       },
     },
   },

@@ -1,4 +1,6 @@
-import { useState, useEffect, useRef } from "react";
+"use client";
+
+import { useEffect, useRef, useState } from "react";
 
 const images = [
   "/images/wedding.jpg",
@@ -18,14 +20,6 @@ const Carousel = () => {
   const carouselRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 5000);
-
-    return () => clearInterval(interval);
-  }, []);
-
-  useEffect(() => {
     if (carouselRef.current) {
       carouselRef.current.style.transition = "transform 1s ease-in-out";
       carouselRef.current.style.transform = `translateX(-${
@@ -35,7 +29,7 @@ const Carousel = () => {
   }, [currentIndex]);
 
   return (
-    <div className="relative w-full h-screen overflow-hidden">
+    <section className="relative w-full h-screen overflow-hidden shadow-[0_4px_4px_rgba(0,0,0,0.25),0_1px_2px_rgba(0,0,0,0.3)]">
       <div
         ref={carouselRef}
         className="flex w-full h-full"
@@ -50,6 +44,7 @@ const Carousel = () => {
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}
+            aria-hidden={index !== currentIndex}
           >
             {index === 0 && (
               <div
@@ -58,19 +53,24 @@ const Carousel = () => {
                   backdropFilter: "blur(10px)",
                 }}
               >
-                <div className="absolute top-1/3 left-1/2 grid gap-8 transform -translate-x-1/2 text-center text-white">
-                  <h1 className="text-7xl font-bold mb-4 font-cormorantGaramond">
+                <div className="absolute top-1/4 left-1/2 grid gap-10 transform -translate-x-1/2 text-center text-white">
+                  <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold font-cormorantGaramond">
                     Forever Begins Here A Love Written in the Stars
                   </h1>
-                  <div>
-                    <h3 className="font-raleway">
+                  <div className="grid gap-6 sm:gap-8">
+                    <h3 className="text-lg sm:text-xl font-raleway">
                       Two hearts, one journey, bound by love and cherished
                       moments. Join us as we celebrate the beginning of our
                       forever, surrounded by those who mean the most.
                     </h3>
-                    <button className="bg-primary-500 text-white py-2 px-4 rounded-full">
-                      Learn More
-                    </button>
+                    <div className="flex justify-center font-sans">
+                      <button
+                        className="bg-primary text-white py-2 px-6 rounded-md w-80 sm:w-96 mt-4 hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50 shadow-lg transform transition duration-200 ease-in-out hover:scale-105"
+                        aria-label="Details about the wedding event"
+                      >
+                        รายละเอียดงานแต่ง
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -84,13 +84,16 @@ const Carousel = () => {
           <button
             key={index}
             className={`w-3 h-3 rounded-full ${
-              index === currentIndex ? "bg-primary-500" : "bg-white"
+              index === currentIndex
+                ? "bg-white"
+                : "bg-gray-300 bg-opacity-50 backdrop-blur-md"
             }`}
             onClick={() => setCurrentIndex(index)}
+            aria-label={`Slide ${index + 1}`}
           />
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 
