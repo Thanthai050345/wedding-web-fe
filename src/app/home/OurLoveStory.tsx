@@ -1,7 +1,22 @@
+"use client";
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
+import ImageModal from "../components/ImageModal";
 
 const OurLoveStory = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
+  const openModal = (imageSrc: string) => {
+    setSelectedImage(imageSrc);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedImage(null);
+  };
+
   return (
     <div className="flex items-center justify-center bg-[#f4f4f4] py-16 px-6 font-sans">
       <div className="container mx-auto text-center">
@@ -14,29 +29,45 @@ const OurLoveStory = () => {
 
         <div className="grid grid-cols-2 gap-2 sm:gap-4 md:gap-6 lg:grid-cols-4">
           <div className="flex flex-col gap-2 sm:gap-4 md:gap-6 lg:col-start-2">
-            <Image
-              src="/images/wedding.jpg"
-              alt="Love Story Image 1"
-              width={600}
-              height={400}
-              className="w-full h-auto rounded-lg shadow-md"
-            />
-            <Image
-              src="/images/wedding.jpg"
-              alt="Love Story Image 2"
-              width={600}
-              height={400}
-              className="w-full h-auto rounded-lg shadow-md"
-            />
+            <div
+              className="relative group cursor-pointer overflow-hidden"
+              onClick={() => openModal("/images/wedding.jpg")}
+            >
+              <Image
+                src="/images/wedding.jpg"
+                alt="Love Story Image 1"
+                width={600}
+                height={400}
+                className="w-full h-auto rounded-lg shadow-md group-hover:scale-105 group-hover:shadow-xl transition-all duration-300 cursor-pointer"
+              />
+            </div>
+            <div
+              className="relative group cursor-pointer overflow-hidden"
+              onClick={() => openModal("/images/wedding.jpg")}
+            >
+              <Image
+                src="/images/wedding.jpg"
+                alt="Love Story Image 1"
+                width={600}
+                height={400}
+                className="w-full h-auto rounded-lg shadow-md group-hover:scale-105 group-hover:shadow-xl transition-all duration-300 cursor-pointer"
+              />
+            </div>
           </div>
           <div className="flex flex-col h-full">
-            <Image
-              src="/images/wedding.jpg"
-              alt="Love Story Image 3"
-              width={600}
-              height={800}
-              className="w-full h-full object-cover rounded-lg shadow-md"
-            />
+            <div
+              className="relative group cursor-pointer overflow-hidden h-full"
+              onClick={() => openModal("/images/wedding.jpg")}
+            >
+              <Image
+                src="/images/wedding.jpg"
+                alt="Love Story Image 3"
+                width={600}
+                height={800}
+                className="w-full h-full object-cover rounded-lg group-hover:scale-105 group-hover:shadow-xl transition-all duration-300 cursor-pointer"
+                onClick={() => openModal("/images/wedding.jpg")}
+              />
+            </div>
           </div>
         </div>
 
@@ -59,6 +90,12 @@ const OurLoveStory = () => {
           </button>
         </div>
       </div>
+
+      <ImageModal
+        isOpen={isModalOpen}
+        imageSrc={selectedImage}
+        onClose={closeModal}
+      />
     </div>
   );
 };

@@ -1,6 +1,7 @@
 "use client";
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
+import ImageModal from "../components/ImageModal";
 
 const images = [
   { src: "/images/wedding.jpg", alt: "Wedding Image 1" },
@@ -12,6 +13,7 @@ const images = [
 
 const Gallery = () => {
   const [isDragging, setIsDragging] = useState(false);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const startX = useRef(0);
   const scrollLeft = useRef(0);
   const carouselRef = useRef<HTMLDivElement>(null);
@@ -38,6 +40,33 @@ const Gallery = () => {
     carouselRef.current!.scrollLeft = scrollLeft.current - walk;
   };
 
+  const handleImageClick = (imageSrc: string) => {
+    setSelectedImage(imageSrc);
+  };
+
+  const closeModal = () => {
+    setSelectedImage(null);
+  };
+
+  useEffect(() => {
+    const carousel = carouselRef.current;
+    if (!carousel) return;
+
+    const handleScroll = () => {
+      const maxScrollLeft = carousel.scrollWidth - carousel.clientWidth;
+      if (carousel.scrollLeft === maxScrollLeft) {
+        carousel.style.transition = "transform 0.3s ease";
+        carousel.scrollLeft = carousel.clientWidth;
+      }
+    };
+
+    carousel.addEventListener("scroll", handleScroll);
+
+    return () => {
+      if (carousel) carousel.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <div className="flex items-center justify-center bg-[#f4f4f4] py-16 px-6 font-sans">
       <div className="container mx-auto text-center">
@@ -57,21 +86,28 @@ const Gallery = () => {
           onMouseMove={handleMouseMove}
         >
           <div className="flex space-x-4">
-            {images.map((image, index) => (
-              <div key={index} className="flex-shrink-0 w-80 content-center">
+            {[...images, ...images, ...images].map((image, index) => (
+              <div key={index} className="flex-shrink-0 w-80 group content-center">
                 <div className="rounded-lg shadow-lg overflow-hidden">
                   <Image
                     src={image.src}
                     alt={image.alt}
                     width={500}
                     height={300}
-                    className="w-full h-auto object-cover"
+                    className="w-full h-auto object-cover group-hover:scale-105 group-hover:shadow-xl transition-all duration-300 cursor-pointer"
+                    onClick={() => handleImageClick(image.src)} // เมื่อคลิกที่รูปภาพ จะเปิด modal
                   />
                 </div>
               </div>
             ))}
           </div>
         </div>
+
+        <ImageModal
+          isOpen={!!selectedImage}
+          imageSrc={selectedImage}
+          onClose={closeModal}
+        />
 
         <div className="mt-8">
           <button className="text-[#007AFF] text-lg py-2 px-6 rounded-lg hover:bg-opacity-80 transition duration-300">
