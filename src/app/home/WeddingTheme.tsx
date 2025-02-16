@@ -18,7 +18,7 @@ const WeddingTheme: React.FC = () => {
     <div
       className="flex items-center justify-center bg-cover bg-center bg-no-repeat py-12 px-6 font-sans"
       style={{
-        backgroundImage: "url(/images/rose_4.jpg)",
+        backgroundImage: "url(/images/rose_2.jpg)",
       }}
     >
       <div className="container mx-auto text-center max-w-7xl">
@@ -35,7 +35,7 @@ const WeddingTheme: React.FC = () => {
               <div
                 key={index}
                 style={{ backgroundColor: color.code }}
-                className="w-[300px] flex items-center justify-center text-white text-lg font-semibold py-4 w-full sm:w-[300px] mx-auto"
+                className="w-[200px] flex items-center justify-center text-white text-lg font-semibold py-4 w-full sm:w-[300px] mx-auto"
               >
                 <div>
                   <p>{color.name}</p>

@@ -69,7 +69,7 @@ const Guestbook = () => {
   };
 
   return (
-    <div className="bg-[#f4f4f4] pt-16 px-6 font-sans">
+    <div className="bg-[#f4f4f4] py-16 px-6 font-sans">
       <div className="mx-auto max-w-[600px]">
         <div className="text-center">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-primary mb-4">
