@@ -91,7 +91,7 @@ const PostWish = () => {
           <textarea
             className="w-full focus:outline-none resize-none"
             rows={3}
-            placeholder="คุณคิดอะไรอยู่?"
+            placeholder="รวมส่งคำอวยพร..."
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             style={{
