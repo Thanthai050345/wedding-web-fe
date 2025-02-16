@@ -13,8 +13,9 @@ const PostWish = () => {
 
   const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (!event.target.files) return;
-    const files = Array.from(event.target.files).slice(0, 4);
-    const newImages = [...images, ...files].slice(0, 4);
+    const files = Array.from(event.target.files);
+    const newImages = [...images, ...files].slice(-4);
+
     setImages(newImages);
     setPreviewImages(newImages.map((file) => URL.createObjectURL(file)));
   };
@@ -153,7 +154,12 @@ const PostWish = () => {
           )}
 
           <div className="flex items-center justify-between p-5 border rounded-lg bg-white border-gray-300 shadow-sm">
-            <p className="text-gray-700 font-semibold">เพิ่มลงในโพสต์ของคุณ</p>
+            <div>
+              <p className="text-gray-700 font-semibold">
+                เพิ่มลงในโพสต์ของคุณ
+              </p>
+              <p>(สูงสุด 4 รูป)</p>
+            </div>
             <label className="flex items-center space-x-2 cursor-pointer text-green-500 hover:text-green-600">
               <FaFileImage
                 size={24}
