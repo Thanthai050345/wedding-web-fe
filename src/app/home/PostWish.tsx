@@ -65,7 +65,7 @@ const PostWish = () => {
         onClose={handleCloseModal}
         className="fixed inset-0 flex items-center justify-center z-50 bg-gray-500 bg-opacity-50"
       >
-        <div className="bg-white p-6 font-sans rounded-lg shadow-lg w-[500px] w-full relative m-5 flex flex-col gap-3">
+        <div className="bg-white p-6 font-sans rounded-lg shadow-lg max-w-[500px] w-full relative m-5 flex flex-col gap-3">
           <button
             className="absolute top-3 right-3 text-gray-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 rounded-full p-2"
             onClick={handleCloseModal}
