@@ -34,7 +34,7 @@ const WeddingCard = () => {
 
         <div className="text-primary grid gap-[60px] font-sans p-10 md:p-20 lg:p-20 relative z-10">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center">
-            BANK & KWAN
+            ___ & ___
           </h2>
           <div className="w-full flex justify-center">
             <div className="grid gap-8 max-w-[756px] mt-4 text-lg sm:text-xl md:text-2xl leading-relaxed">
@@ -43,7 +43,7 @@ const WeddingCard = () => {
               </p>
               <p className="mt-2">
                 ด้วยความยินดีและเป็นเกียรติอย่างยิ่งที่{" "}
-                <strong>BANK และ KWAN</strong>{" "}
+                <strong>___ และ ___</strong>{" "}
                 จะได้ร่วมกันเริ่มต้นการเดินทางใหม่ในชีวิต
                 เราขอเรียนเชิญท่านเข้าร่วมเป็นสักขีพยานในพิธีมงคลสมรสของเรา
               </p>

@@ -6,6 +6,7 @@ import { fetchGuestbookData } from "@/libs/api";
 import { Metadata } from "next";
 import ImageModal from "../components/ImageModal";
 import { Wish } from "@/models/home/guestbook";
+import PostWish from "./PostWish";
 
 export const metadata: Metadata = {
   title: "Guestbook & Wishes | คำอวยพรจากเพื่อนและครอบครัว",
@@ -80,6 +81,7 @@ const Guestbook = () => {
         </div>
 
         <div className="space-y-4">
+          <PostWish />
           {wishes.map((wish, index) => (
             <div key={wish.id} className="p-6 rounded-lg shadow-md bg-white">
               <div className="flex items-center space-x-4">
@@ -141,7 +143,9 @@ const Guestbook = () => {
                             width={wish.images?.length === 1 ? 150 : 150}
                             height={wish.images?.length === 1 ? 150 : 150}
                             className={`object-cover w-full aspect-square h-full ${
-                              wish.images?.length === 3 && imgIndex === 0 ? "h-[260px]" : ""
+                              wish.images?.length === 3 && imgIndex === 0
+                                ? "h-[260px]"
+                                : ""
                             }`}
                           />
                         </div>
