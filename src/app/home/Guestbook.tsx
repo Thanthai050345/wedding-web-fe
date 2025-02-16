@@ -123,16 +123,20 @@ const Guestbook = () => {
                         wish.images.length === 4
                           ? "grid-flow-col grid-rows-2"
                           : ""
-                      } ${wish.images.length === 3 ? "grid-cols-2" : ""} ${
-                        wish.images.length === 2 ? "grid-cols-2" : ""
-                      } ${wish.images.length === 1 ? "grid-cols-1" : ""}`}
+                      } ${
+                        wish.images.length === 3
+                          ? "grid-cols-2 grid-rows-2"
+                          : ""
+                      } ${wish.images.length === 2 ? "grid-cols-2" : ""} ${
+                        wish.images.length === 1 ? "grid-cols-1" : ""
+                      }`}
                     >
                       {wish.images.map((image, imgIndex) => (
                         <div
                           key={imgIndex}
                           className={`relative cursor-pointer ${
                             wish.images?.length === 3 && imgIndex === 0
-                              ? "col-span-2"
+                              ? "col-span-1 row-span-2"
                               : ""
                           }`}
                           onClick={() => openImageModal(image)}
@@ -140,8 +144,8 @@ const Guestbook = () => {
                           <Image
                             src={image}
                             alt={`Wish Image ${imgIndex + 1}`}
-                            width={wish.images?.length === 1 ? 150 : 150}
-                            height={wish.images?.length === 1 ? 150 : 150}
+                            width={150}
+                            height={150}
                             className={`object-cover w-full aspect-square h-full ${
                               wish.images?.length === 3 && imgIndex === 0
                                 ? "h-[260px]"
@@ -156,15 +160,6 @@ const Guestbook = () => {
               )}
             </div>
           ))}
-        </div>
-
-        <div className="mt-8 text-center">
-          <a
-            href="/guestbook/write"
-            className="bg-gray-700 text-white py-2 px-6 rounded-md hover:bg-gray-900 transition"
-          >
-            เขียนคำอวยพร
-          </a>
         </div>
 
         <ImageModal
