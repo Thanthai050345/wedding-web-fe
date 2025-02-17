@@ -21,7 +21,7 @@ const LoginPage = () => {
           className="absolute z-0"
         />
         <div className="relative z-10 min-h-screen flex flex-col justify-end items-center">
-          <div className="m-4 p-6 backdrop-blur-sm bg-primary bg-opacity-50 text-white text-center rounded-lg shadow-lg">
+          <div className="m-4 p-6 backdrop-blur-sm bg-primary bg-opacity-50 text-white rounded-lg shadow-lg">
             <p className="text-3xl font-raleway">BANK & KWAN</p>
             <p className="text-sm mt-2">
               ยินดีต้อนรับสู่ช่วงเวลาพิเศษของเรา เข้าสู่ระบบเพื่อส่งคำอวยพร
