@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { fetchGuestbookData } from "@/libs/api";
 import { Metadata } from "next";
-import ImageModal from "../components/ImageModal";
+import ImageModal from "../../components/ImageModal";
 import { Wish } from "@/models/home/guestbook";
 import PostWish from "./PostWish";
 

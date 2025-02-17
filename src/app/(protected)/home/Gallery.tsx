@@ -1,8 +1,8 @@
 "use client";
 import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
-import ImageModal from "../components/ImageModal";
-import './gallery.scss';
+import ImageModal from "../../components/ImageModal";
+import "./gallery.scss";
 
 const images = [
   { src: "/images/wedding.jpg", alt: "Wedding Image 1" },

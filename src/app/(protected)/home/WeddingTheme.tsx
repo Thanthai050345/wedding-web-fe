@@ -23,7 +23,7 @@ const WeddingTheme: React.FC = () => {
     >
       <div className="container mx-auto text-center max-w-7xl">
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white mb-4">
-          Colour and Theme
+          Color and Theme
         </h2>
         <p className="text-xl sm:text-2xl md:text-3xl font-normal text-white mb-12">
           เลือกสีที่เหมาะสมที่สุดในการแต่งตัวของคุณ

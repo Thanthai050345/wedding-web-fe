@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import React, { useState } from "react";
-import ImageModal from "../components/ImageModal";
+import ImageModal from "../../components/ImageModal";
 
 const OurLoveStory = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
