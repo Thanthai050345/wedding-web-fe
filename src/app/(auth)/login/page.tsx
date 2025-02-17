@@ -28,7 +28,7 @@ const LoginPage = () => {
               และร่วมเป็นส่วนหนึ่งของความรักและความทรงจำดีๆ ไปกับเราสองคนนะคะ 💕
             </p>
           </div>
-          <div className="bg-white rounded-t-3xl p-8 shadow-lg w-full">
+          <div className="bg-white rounded-t-3xl p-6 shadow-lg w-full">
             <LoginButtons handleSocialLogin={handleSocialLogin} />
           </div>
         </div>
@@ -70,29 +70,29 @@ interface LoginButtonsProps {
 
 const LoginButtons = ({ handleSocialLogin }: LoginButtonsProps) => {
   return (
-    <div className="space-y-4">
+    <div className="space-y-2">
       <button
         onClick={() => handleSocialLogin("facebook")}
-        className="w-full flex items-center justify-center gap-3 px-6 py-4 bg-[#1877F2] text-white rounded-lg hover:bg-[#1864F2] transition-colors"
+        className="w-full flex items-center justify-center gap-3 px-6 py-3 bg-[#1877F2] text-white rounded-lg hover:bg-[#1864F2] transition-colors"
       >
         <FaFacebook className="text-xl" />
         <span>เข้าสู่ระบบด้วย Facebook</span>
       </button>
 
       <button
-        onClick={() => handleSocialLogin("google")}
-        className="w-full flex items-center justify-center gap-3 px-6 py-4 bg-white text-gray-700 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
-      >
-        <FaGoogle className="text-xl text-red-600" />
-        <span>เข้าสู่ระบบด้วย Google</span>
-      </button>
-
-      <button
         onClick={() => handleSocialLogin("line")}
-        className="w-full flex items-center justify-center gap-3 px-6 py-4 bg-[#06C755] text-white rounded-lg hover:bg-[#05B54B] transition-colors"
+        className="w-full flex items-center justify-center gap-3 px-6 py-3 bg-[#06C755] text-white rounded-lg hover:bg-[#05B54B] transition-colors"
       >
         <SiLine className="text-xl" />
         <span>เข้าสู่ระบบด้วย Line</span>
+      </button>
+
+      <button
+        onClick={() => handleSocialLogin("google")}
+        className="w-full flex items-center justify-center gap-3 px-6 py-3 bg-white text-gray-700 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+      >
+        <FaGoogle className="text-xl text-red-600" />
+        <span>เข้าสู่ระบบด้วย Google</span>
       </button>
     </div>
   );

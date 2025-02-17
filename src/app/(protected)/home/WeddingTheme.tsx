@@ -35,7 +35,7 @@ const WeddingTheme: React.FC = () => {
               <div
                 key={index}
                 style={{ backgroundColor: color.code }}
-                className="w-[200px] flex items-center justify-center text-white text-lg font-semibold py-4 w-full sm:w-[300px] mx-auto"
+                className="w-[220px] flex items-center justify-center text-white text-lg font-semibold py-4 w-full sm:w-[300px] mx-auto"
               >
                 <div>
                   <p>{color.name}</p>
