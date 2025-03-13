@@ -6,7 +6,8 @@
     "dev": "next dev --turbopack",
     "build": "next build && next export",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "deploy": "rm -rf out && npm run export && gh-pages -d out"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.0",
