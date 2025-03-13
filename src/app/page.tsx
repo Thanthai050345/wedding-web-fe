@@ -1,6 +1,15 @@
-import { redirect } from "next/navigation";
+"use client";
+
+import { useEffect } from "react";
+import { useRouter } from "next/router";
 
 export default function Page() {
-  redirect("/e-invitation");
+  const router = useRouter();
+
+  useEffect(() => {
+    // ทำการ redirect ไปที่ /e-invitation
+    router.push("/e-invitation");
+  }, [router]);
+
   return null;
 }
