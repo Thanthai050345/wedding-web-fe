@@ -4,6 +4,7 @@ const nextConfig: NextConfig = {
   output: "export",
   images: {
     domains: ["i.pravatar.cc", "source.unsplash.com", "plus.unsplash.com"],
+    unoptimized: true,
   },
   basePath: "/wedding-web-fe", // ตั้ง basePath ให้เป็นชื่อ repo
   assetPrefix: "/wedding-web-fe/",

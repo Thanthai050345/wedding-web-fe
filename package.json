@@ -4,10 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build && next export",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "deploy": "rm -rf out && npm run export && gh-pages -d out"
+    "deploy": "rm -rf out && yarn build && gh-pages -d out"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.0",
