@@ -9,7 +9,7 @@ export default function WeddingInvitation() {
   const router = useRouter();
 
   return (
-    <div className="relative inset-0 min-h-screen flex items-center justify-center bg-gray-100 px-4 font-sans">
+    <div className="relative inset-0 min-h-screen flex items-center justify-center bg-gray-100 px-4 py-16 font-sans">
       <div className="absolute inset-0 z-0">
         <Image
           src="/images/wedding.jpg"
@@ -61,17 +61,17 @@ export default function WeddingInvitation() {
           </div>
         </div>
 
-        <Button
-          className="w-full mt-8 bg-primary text-white py-3 rounded-lg text-lg hover:bg-pink-500 transition-all duration-200 ease-in-out"
-          onClick={() => router.push("/rsvp-form")}
-        >
-          ยืนยันการเข้าร่วมงาน
-        </Button>
-
         <div className="mt-6 text-center text-sm text-gray-500">
           <p>กรุณาตอบรับภายในวันที่ 10 เมษายน 2568</p>
           <p>สอบถามข้อมูลเพิ่มเติม: 080-XXX-XXXX</p>
         </div>
+
+        <Button
+          className="w-full mt-8 bg-primary text-white py-3 rounded-lg text-lg hover:bg-pink-500 transition-all duration-200 ease-in-out"
+          onClick={() => router.push("/home")}
+        >
+          เข้าชมเว็บไซต์
+        </Button>
       </div>
     </div>
   );
