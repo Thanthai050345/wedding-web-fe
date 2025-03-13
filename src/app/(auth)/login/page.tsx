@@ -11,10 +11,9 @@ const LoginPage = () => {
 
   return (
     <div className="min-h-screen w-full font-sans">
-      {/* Mobile layout */}
       <div className="relative lg:hidden">
         <Image
-          src="/images/wedding.jpg"
+          src="/images/wedding3.jpg"
           alt="Background"
           layout="fill"
           objectFit="cover"
@@ -34,11 +33,10 @@ const LoginPage = () => {
         </div>
       </div>
 
-      {/* Desktop layout */}
       <div className="hidden lg:flex min-h-screen">
         <div className="w-1/2 relative">
           <Image
-            src="/images/wedding.jpg"
+            src="/images/wedding3.jpg"
             alt="Background"
             layout="fill"
             objectFit="cover"

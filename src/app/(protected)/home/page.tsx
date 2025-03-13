@@ -4,10 +4,11 @@ import CountdownTimer from "./CountdownTimer";
 import WeddingCard from "./WeddingCard";
 import OurLoveStory from "./OurLoveStory";
 import Gallery from "./Gallery";
-import Guestbook from "./Guestbook";
+// import Guestbook from "./Guestbook";
 import WeddingTheme from "./WeddingTheme";
 import MapInfo from "./MapInfo";
 import Footer from "./Footer";
+import Card from "@/app/(e-invitation)/e-invitation/card";
 
 export const metadata: Metadata = {
   title: "Join Our Celebration | 15 April 2026",
@@ -44,10 +45,13 @@ export default function Home() {
         </div>
       </div>
 
+      <div className="grid justify-items-center">
+        <Card home={true}/>
+      </div>
       <WeddingCard />
       <OurLoveStory />
       <Gallery />
-      <Guestbook />
+      {/* <Guestbook /> */}
       <WeddingTheme />
       <MapInfo id="map-section" />
       <Footer />

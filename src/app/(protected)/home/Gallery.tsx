@@ -6,11 +6,13 @@ import "./gallery.scss";
 
 const images = [
   { src: "/images/wedding.jpg", alt: "Wedding Image 1" },
+  { src: "/images/wedding4.jpg", alt: "Wedding Image 4" },
   { src: "/images/wedding2.jpg", alt: "Wedding Image 2" },
-  { src: "/images/wedding.jpg", alt: "Wedding Image 3" },
-  { src: "/images/wedding2.jpg", alt: "Wedding Image 4" },
-  { src: "/images/wedding.jpg", alt: "Wedding Image 5" },
-  { src: "/images/wedding2.jpg", alt: "Wedding Image 4" },
+  { src: "/images/wedding5.jpg", alt: "Wedding Image 5" },
+  { src: "/images/wedding3.jpg", alt: "Wedding Image 3" },
+  { src: "/images/wedding6.jpg", alt: "Wedding Image 4" },
+  { src: "/images/wedding.jpg", alt: "Wedding Image 1" },
+  { src: "/images/wedding7.jpg", alt: "Wedding Image 4" },
 ];
 
 const Gallery = () => {
@@ -77,7 +79,7 @@ const Gallery = () => {
 
   return (
     <div className="flex items-center justify-center bg-[#f4f4f4] pt-16 px-6 font-sans">
-      <div className="container mx-auto text-center">
+      <div className="container mx-auto text-center mb-16">
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-primary mb-4">
           Gallery
         </h2>
@@ -119,12 +121,6 @@ const Gallery = () => {
           imageSrc={selectedImage}
           onClose={closeModal}
         />
-
-        <div className="mt-8">
-          <button className="text-[#007AFF] text-lg py-2 px-6 rounded-lg hover:bg-opacity-80 transition duration-300">
-            เพิ่มเติม
-          </button>
-        </div>
       </div>
     </div>
   );

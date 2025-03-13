@@ -43,10 +43,10 @@ const OurLoveStory = () => {
             </div>
             <div
               className="relative group cursor-pointer overflow-hidden"
-              onClick={() => openModal("/images/wedding.jpg")}
+              onClick={() => openModal("/images/wedding4.jpg")}
             >
               <Image
-                src="/images/wedding.jpg"
+                src="/images/wedding4.jpg"
                 alt="Love Story Image 1"
                 width={600}
                 height={400}
@@ -57,15 +57,14 @@ const OurLoveStory = () => {
           <div className="flex flex-col h-full">
             <div
               className="relative group cursor-pointer overflow-hidden h-full"
-              onClick={() => openModal("/images/wedding.jpg")}
+              onClick={() => openModal("/images/wedding5.jpg")}
             >
               <Image
-                src="/images/wedding.jpg"
+                src="/images/wedding5.jpg"
                 alt="Love Story Image 3"
                 width={600}
                 height={800}
                 className="w-full h-full object-cover rounded-lg group-hover:scale-105 group-hover:shadow-xl transition-all duration-300 cursor-pointer"
-                onClick={() => openModal("/images/wedding.jpg")}
               />
             </div>
           </div>
@@ -82,12 +81,6 @@ const OurLoveStory = () => {
             โลกที่เคยวุ่นวายกลับเงียบสงบในชั่วพริบตา เราเริ่มต้นจากการเป็นเพื่อน
             พูดคุย หัวเราะ และค่อยๆ เติมเต็มกันและกัน
           </p>
-        </div>
-
-        <div className="mt-8">
-          <button className="text-[#007AFF] text-lg py-2 px-6 rounded-lg hover:bg-opacity-80 transition duration-300">
-            เพิ่มเติม
-          </button>
         </div>
       </div>
 

@@ -33,9 +33,9 @@ const WeddingCard = () => {
         ></div>
 
         <div className="text-primary grid gap-[60px] font-sans p-10 md:p-20 lg:p-20 relative z-10">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center">
+          {/* <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center">
             ___ & ___
-          </h2>
+          </h2> */}
           <div className="w-full flex justify-center">
             <div className="grid gap-8 max-w-[756px] mt-4 text-lg sm:text-xl md:text-2xl leading-relaxed">
               <p>

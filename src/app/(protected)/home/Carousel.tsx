@@ -5,14 +5,14 @@ import { useEffect, useRef, useState } from "react";
 const images = [
   "/images/wedding.jpg",
   "/images/wedding.jpg",
-  "/images/wedding.jpg",
-  "/images/wedding.jpg",
-  "/images/wedding.jpg",
-  "/images/wedding.jpg",
-  "/images/wedding.jpg",
-  "/images/wedding.jpg",
-  "/images/wedding.jpg",
-  "/images/wedding.jpg",
+  // "/images/16-9-wedding.svg",
+  "/images/wedding2.jpg",
+  "/images/wedding4.jpg",
+  "/images/wedding5.jpg",
+  // "/images/16-9-wedding-3.svg",
+  "/images/wedding3.jpg",
+  "/images/wedding6.jpg",
+  "/images/wedding7.jpg",
 ];
 
 const Carousel = () => {
@@ -99,14 +99,6 @@ const Carousel = () => {
                       moments. Join us as we celebrate the beginning of our
                       forever, surrounded by those who mean the most.
                     </h3>
-                    <div className="flex justify-center font-sans">
-                      <button
-                        className="bg-primary text-white py-2 px-6 rounded-md w-80 sm:w-96 mt-4 hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50 shadow-lg transform transition duration-200 ease-in-out hover:scale-105"
-                        aria-label="Details about the wedding event"
-                      >
-                        รายละเอียดงานแต่ง
-                      </button>
-                    </div>
                   </div>
                 </div>
               </div>
