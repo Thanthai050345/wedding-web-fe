@@ -10,39 +10,35 @@ const images = [
   { src: "/images/wedding2.jpg", alt: "Wedding Image 2" },
   { src: "/images/wedding5.jpg", alt: "Wedding Image 5" },
   { src: "/images/wedding3.jpg", alt: "Wedding Image 3" },
-  { src: "/images/wedding6.jpg", alt: "Wedding Image 4" },
-  { src: "/images/wedding.jpg", alt: "Wedding Image 1" },
-  { src: "/images/wedding7.jpg", alt: "Wedding Image 4" },
+  { src: "/images/wedding6.jpg", alt: "Wedding Image 6" },
+  { src: "/images/wedding7.jpg", alt: "Wedding Image 7" },
 ];
 
 const Gallery = () => {
-  const [isDragging, setIsDragging] = useState(false);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
-  const startX = useRef(0);
-  const scrollLeft = useRef(0);
   const carouselRef = useRef<HTMLDivElement>(null);
+  const speed = 1; // ปรับความเร็วของการเลื่อน
 
-  const handleMouseDown = (e: React.MouseEvent) => {
-    setIsDragging(true);
-    startX.current = e.pageX - carouselRef.current!.offsetLeft;
-    scrollLeft.current = carouselRef.current!.scrollLeft;
-  };
+  useEffect(() => {
+    const carousel = carouselRef.current;
+    if (!carousel) return;
 
-  const handleMouseLeave = () => {
-    setIsDragging(false);
-  };
+    let animationFrameId: number;
 
-  const handleMouseUp = () => {
-    setIsDragging(false);
-  };
+    const scrollGallery = () => {
+      if (carousel.scrollLeft >= carousel.scrollWidth / 2) {
+        // รีเซ็ตการเลื่อนเมื่อถึงครึ่งหนึ่งของ content เพื่อลูปไม่สะดุด
+        carousel.scrollLeft = 0;
+      } else {
+        carousel.scrollLeft += speed;
+      }
+      animationFrameId = requestAnimationFrame(scrollGallery);
+    };
 
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!isDragging) return;
-    e.preventDefault();
-    const x = e.pageX - carouselRef.current!.offsetLeft;
-    const walk = (x - startX.current) * 3;
-    carouselRef.current!.scrollLeft = scrollLeft.current - walk;
-  };
+    animationFrameId = requestAnimationFrame(scrollGallery);
+
+    return () => cancelAnimationFrame(animationFrameId);
+  }, []);
 
   const handleImageClick = (imageSrc: string) => {
     setSelectedImage(imageSrc);
@@ -51,31 +47,6 @@ const Gallery = () => {
   const closeModal = () => {
     setSelectedImage(null);
   };
-
-  useEffect(() => {
-    const carousel = carouselRef.current;
-    if (!carousel) return;
-
-    const handleScroll = () => {
-      const maxScrollLeft = carousel.scrollWidth - carousel.clientWidth;
-
-      if (carousel.scrollLeft === maxScrollLeft) {
-        carousel.style.transition = "transform 0.3s ease";
-        carousel.scrollLeft = carousel.clientWidth;
-      }
-
-      if (carousel.scrollLeft === 0) {
-        carousel.style.transition = "transform 0.3s ease";
-        carousel.scrollLeft = maxScrollLeft;
-      }
-    };
-
-    carousel.addEventListener("scroll", handleScroll);
-
-    return () => {
-      if (carousel) carousel.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
 
   return (
     <div className="flex items-center justify-center bg-[#f4f4f4] py-16 px-6 font-sans min-h-screen">
@@ -90,13 +61,9 @@ const Gallery = () => {
         <div
           ref={carouselRef}
           className="relative overflow-x-auto scrollbar-hide h-[480px] flex items-center"
-          onMouseDown={handleMouseDown}
-          onMouseLeave={handleMouseLeave}
-          onMouseUp={handleMouseUp}
-          onMouseMove={handleMouseMove}
         >
           <div className="flex space-x-4">
-            {[...images, ...images, ...images].map((image, index) => (
+            {[...images, ...images].map((image, index) => (
               <div
                 key={index}
                 className="flex-shrink-0 w-80 group flex items-center justify-center"
