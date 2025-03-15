@@ -5,7 +5,7 @@ const Footer = () => {
     <footer className="bg-primary text-white py-1">
       <div className="container mx-auto text-center">
         <p className="text-sm sm:text-base">
-          © {new Date().getFullYear()} Your Wedding Celebration. All rights
+          © {new Date().getFullYear()} Our Wedding. All rights
           reserved.
         </p>
       </div>
