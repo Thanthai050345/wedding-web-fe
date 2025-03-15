@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import dynamic from "next/dynamic";
+import { MapPin, Navigation, ExternalLink } from "lucide-react";
 
 interface MapInfoProps {
   id: string;
@@ -20,41 +21,75 @@ const MapInfo: React.FC<MapInfoProps> = ({ id }) => {
   return (
     <div
       id={id}
-      className="flex items-center justify-center bg-[#f4f4f4] py-16 px-6 font-sans"
+      className="relative overflow-hidden bg-gradient-to-b from-gray-50 to-gray-100 py-20 px-6 font-sans"
     >
-      <div className="container mx-auto text-center">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-primary mb-4">
-          A Place Every Moment Becomes a Memory
-        </h2>
-        <p className="text-xl sm:text-2xl md:text-3xl font-normal text-gray-700 mb-12">
-          สถานที่จัดงาน สถานที่ที่เราจะสร้างความทรงจำที่ไม่มีวันลืมร่วมกัน
-        </p>
-        <p className="text-lg sm:text-xl md:text-2xl text-gray-600 px-6">
-          เรามีความยินดีที่จะเชิญทุกท่านมาร่วมเป็นสักขีพยานในวันสำคัญของเรา
-          <br />
-          ที่<strong className="font-bold"> ศูนย์ประชุมมารินทร์ </strong>
-          <br />
-          เลขที่ 65 ซอยผดุงวิถี 8, ตำบลตลาด, อำเภอเมืองมหาสารคาม,
-          จังหวัดมหาสารคาม, ประเทศไทย 44000
-        </p>
+      {/* Decorative elements */}
+      <div className="absolute top-0 left-0 w-32 h-32 bg-primary/5 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
+      <div className="absolute bottom-0 right-0 w-40 h-40 bg-primary/10 rounded-full translate-x-1/3 translate-y-1/3"></div>
 
-        <div className="mt-12 mb-3 w-full flex justify-center items-center relative z-0">
-          <div className="max-w-[756px] h-[300px] w-full rounded-2xl shadow-xl">
-            <MapComponent />
+      <div className="container mx-auto max-w-6xl relative z-10">
+        {/* Header section with decorative line */}
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center justify-center mb-4">
+            <div className="h-px w-12 bg-primary/30"></div>
+            <span className="mx-4 text-sm font-medium uppercase tracking-widest text-primary">
+              Our Venue
+            </span>
+            <div className="h-px w-12 bg-primary/30"></div>
           </div>
+
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold bg-gradient-to-r from-primary to-primary-dark bg-clip-text text-transparent mb-6">
+            A Place Every Moment
+            <br className="hidden sm:block" /> Becomes a Memory
+          </h2>
+
+          <p className="text-xl sm:text-2xl md:text-3xl font-light text-gray-700 max-w-3xl mx-auto">
+            สถานที่จัดงาน สถานที่ที่เราจะสร้างความทรงจำที่ไม่มีวันลืมร่วมกัน
+          </p>
         </div>
 
-        <button
-          className="bg-primary text-white py-2 px-6 rounded-md w-80 sm:w-96 mt-4 hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50 shadow-lg transform transition duration-200 ease-in-out hover:scale-105"
-          aria-label="Details about the wedding event"
-          onClick={(e) => {
-            e.preventDefault();
-            openGoogleMaps();
-          }}
-          rel="noopener noreferrer"
-        >
-          เปิดใน Google Maps
-        </button>
+        {/* Map and info card overlapping layout */}
+        <div className="flex flex-col lg:flex-row items-center gap-6 lg:gap-12">
+          <div className="w-full lg:w-3/5 rounded-2xl shadow-lg overflow-hidden bg-white h-80 sm:h-96">
+            <MapComponent />
+          </div>
+
+          <div className="w-full lg:w-2/5 bg-white p-6 sm:p-8 rounded-2xl shadow-lg">
+            <div className="flex items-start mb-4">
+              <MapPin className="text-primary mr-3 flex-shrink-0" size={24} />
+              <div>
+                <h3 className="text-xl sm:text-2xl font-semibold text-gray-900">
+                  ศูนย์ประชุมมารินทร์
+                </h3>
+                <p className="text-gray-600 text-sm sm:text-base">
+                  เลขที่ 65 ซอยผดุงวิถี 8, ตำบลตลาด, อำเภอเมืองมหาสารคาม,
+                  จังหวัดมหาสารคาม, ประเทศไทย 44000
+                </p>
+              </div>
+            </div>
+
+            <p className="text-gray-700 italic mb-6 border-l-4 border-primary/20 pl-4">
+              เรามีความยินดีที่จะเชิญทุกท่านมาร่วมเป็นสักขีพยานในวันสำคัญของเรา
+            </p>
+            
+            <button
+              className="flex items-center justify-center w-full sm:w-auto bg-primary hover:bg-primary-dark text-white py-3 px-5 sm:px-6 rounded-lg shadow-md transition-all duration-300 ease-in-out hover:shadow-xl group"
+              aria-label="Open in Google Maps"
+              onClick={(e) => {
+                e.preventDefault();
+                openGoogleMaps();
+              }}
+              rel="noopener noreferrer"
+            >
+              <Navigation
+                className="mr-2 group-hover:-rotate-12 transition-transform duration-300"
+                size={20}
+              />
+              เปิดใน Google Maps
+              <ExternalLink className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );
