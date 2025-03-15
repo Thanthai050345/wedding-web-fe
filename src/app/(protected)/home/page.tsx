@@ -8,7 +8,7 @@ import Gallery from "./Gallery";
 import WeddingTheme from "./WeddingTheme";
 import MapInfo from "./MapInfo";
 import Footer from "./Footer";
-import Card from "@/app/(e-invitation)/e-invitation/card";
+// import Card from "@/app/(e-invitation)/e-invitation/card";
 import WeddingSchedule from "./WeddingSchedule";
 
 export const metadata: Metadata = {
@@ -48,9 +48,9 @@ export default function Home() {
 
       <WeddingSchedule />
 
-      <div className="grid justify-items-center">
+      {/* <div className="grid justify-items-center">
         <Card home={true}/>
-      </div>
+      </div> */}
       <WeddingCard />
       <OurLoveStory />
       <Gallery />
