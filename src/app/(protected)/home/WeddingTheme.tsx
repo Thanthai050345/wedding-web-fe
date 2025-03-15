@@ -1,9 +1,9 @@
 import React from "react";
 
 const weddingThemeInfo = {
-  label: "ธีมการแต่งตัวงานแต่งงาน: Luxury Chic",
+  label: "ธีมการแต่งตัวงานแต่งงาน: Elegant Chic",
   description:
-    "สำหรับงานแต่งงานของเรา เราขอให้แขกทุกท่านแต่งตัวในลักษณะหรูหราและทันสมัยที่สุด ตามธีมสีที่เราเลือกไว้.",
+    "สำหรับงานแต่งงานของเรา เราขอให้แขกทุกท่านแต่งตัวในลักษณะตามธีมสีที่เราเลือกไว้",
   colors: [
     { name: "Soft Yellow", code: "#F2DBA7" },
     { name: "Warm Orange", code: "#F8A76E" },
