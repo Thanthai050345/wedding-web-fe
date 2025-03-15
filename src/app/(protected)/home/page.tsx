@@ -9,6 +9,7 @@ import WeddingTheme from "./WeddingTheme";
 import MapInfo from "./MapInfo";
 import Footer from "./Footer";
 import Card from "@/app/(e-invitation)/e-invitation/card";
+import WeddingSchedule from "./WeddingSchedule";
 
 export const metadata: Metadata = {
   title: "Join Our Celebration | 15 April 2026",
@@ -18,7 +19,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <div>
+    <div className="bg-[#f4f4f4]">
       <Carousel />
       <div className="text-center text-primary my-8 px-6 sm:px-12 md:px-16 font-sans">
         <p className="text-lg sm:text-xl md:text-3xl font-bold tracking-wide text-gray-700">
@@ -44,6 +45,8 @@ export default function Home() {
           </div>
         </div>
       </div>
+
+      <WeddingSchedule />
 
       <div className="grid justify-items-center">
         <Card home={true}/>

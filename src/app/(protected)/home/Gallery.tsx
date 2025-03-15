@@ -78,8 +78,8 @@ const Gallery = () => {
   }, []);
 
   return (
-    <div className="flex items-center justify-center bg-[#f4f4f4] pt-16 px-6 font-sans">
-      <div className="container mx-auto text-center mb-16">
+    <div className="flex items-center justify-center bg-[#f4f4f4] py-16 px-6 font-sans min-h-screen">
+      <div className="container mx-auto text-center">
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-primary mb-4">
           Gallery
         </h2>
@@ -89,7 +89,7 @@ const Gallery = () => {
 
         <div
           ref={carouselRef}
-          className="relative overflow-x-auto scrollbar-hide h-[480px]"
+          className="relative overflow-x-auto scrollbar-hide h-[480px] flex items-center"
           onMouseDown={handleMouseDown}
           onMouseLeave={handleMouseLeave}
           onMouseUp={handleMouseUp}
@@ -99,7 +99,7 @@ const Gallery = () => {
             {[...images, ...images, ...images].map((image, index) => (
               <div
                 key={index}
-                className="flex-shrink-0 w-80 group content-center"
+                className="flex-shrink-0 w-80 group flex items-center justify-center"
               >
                 <div className="rounded-lg shadow-lg overflow-hidden">
                   <Image

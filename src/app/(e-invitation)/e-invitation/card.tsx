@@ -28,9 +28,9 @@ export default function Card(props: { button?: boolean; home?: boolean }) {
           เรียนเชิญร่วมงานมงคลสมรส
         </h1>
         <div className="flex items-center justify-center mt-3 space-x-3">
-          <h2 className="text-xl text-gray-700">คุณเจ้าบ่าว</h2>
+          <h2 className="text-xl text-gray-700">คุณวรเมธ</h2>
           <Heart className="text-pink-400 w-6 h-6" />
-          <h2 className="text-xl text-gray-700">คุณเจ้าสาว</h2>
+          <h2 className="text-xl text-gray-700">คุณเทพปรียา</h2>
         </div>
       </div>
 
@@ -42,7 +42,7 @@ export default function Card(props: { button?: boolean; home?: boolean }) {
         <div className="flex items-center justify-center space-x-2">
           <Clock className="text-stone-500 w-5 h-5" />
           <p className="text-gray-700 text-lg">
-            พิธีเช้า: 09:00 น. | งานเลี้ยง: 18:00 น.
+            พิธีเช้า: 08:00 น. | งานเลี้ยง: 11:00 น.
           </p>
         </div>
         <div className="flex items-center justify-center space-x-2">
@@ -55,7 +55,7 @@ export default function Card(props: { button?: boolean; home?: boolean }) {
 
       <div className="mt-6 text-center text-sm text-gray-500">
         <p>กรุณาตอบรับภายในวันที่ 10 เมษายน 2568</p>
-        <p>สอบถามข้อมูลเพิ่มเติม: 080-XXX-XXXX</p>
+        <p>สอบถามข้อมูลเพิ่มเติม: 095-198-1532</p>
       </div>
 
       {props.button && (
