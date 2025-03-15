@@ -2,7 +2,7 @@ import React from "react";
 
 const WeddingSchedule = () => {
   return (
-    <div className="flex items-center justify-center bg-[#f4f4f4] pt-16 px-6 font-sans">
+    <div className="flex items-center justify-center bg-[#f4f4f4] px-6 font-sans">
       <div className="bg-gradient-to-b from-gray-50 to-white p-4 md:p-8 rounded-xl shadow-lg max-w-2xl mx-auto my-8">
         <div className="text-center mb-6 md:mb-8">
           <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-2">
