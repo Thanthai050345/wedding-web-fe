@@ -12,9 +12,9 @@ import Footer from "./Footer";
 import WeddingSchedule from "./WeddingSchedule";
 
 export const metadata: Metadata = {
-  title: "Join Our Celebration | 15 April 2026",
+  title: "Join Our Celebration | 15 April 2025",
   description:
-    "Let's come to celebrate with us on 15 April 2026. Don't miss out!",
+    "Let's come to celebrate with us on 15 April 2025. Don't miss out!",
 };
 
 export default function Home() {
@@ -28,7 +28,7 @@ export default function Home() {
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mt-2 text-primary leading-tight">
           Celebrate with us
         </h1>
-        <p className="text-xl sm:text-2xl mt-4 text-gray-800">15 - 04 - 2026</p>
+        <p className="text-xl sm:text-2xl mt-4 text-gray-800">15 - 04 - 2025</p>
         <p className="text-lg sm:text-xl mt-2 text-gray-500">
           (ศูนย์ประชุมมารินทร์ อำเภอเมือง จังหวัดมหาสารคาม)
         </p>
